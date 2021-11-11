@@ -1,0 +1,42 @@
+While (infix is not empty){
+  Get the first token and remove it from the infix
+
+  If (token is number){
+    add it to the postfix string
+  }
+
+  If (token is "("){
+    push it onto opStack
+    make highestPre = 0
+  }
+
+  If (token is ")"){
+    while(opStack top operator !== "("){
+      Pop an operator from the opStack
+      add it to the postfix
+    }
+
+    pop "("
+    highestPre = precedence of the top operator onto
+    the opStack
+  }
+
+  if(token is not a number, "(" nor ")"){
+    while(token precedence <= highestPre){
+      Pop an operator from the opStack
+      add it to the postfix
+      highestPre = precedence of the top operator onto
+      the opStack
+    }
+
+    push token onto opStack
+    highestPre = precedence of token
+  }
+}
+
+While (opStack is not empty){
+  Pop an operator from the opStack
+  add it to the postfix
+}
+
+Return the postfix

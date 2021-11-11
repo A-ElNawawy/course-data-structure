@@ -1,0 +1,14 @@
+get postfix of the exp
+
+while(postfix is not empty){
+  Get the first token from the postfix
+  if(token is number){
+    push it in valStack
+  }
+  if(token is operator){
+    pop the valStack twice
+    apply the operator on the two values
+    push the result onto valStack
+  }
+}
+pop the valStack and return its value
